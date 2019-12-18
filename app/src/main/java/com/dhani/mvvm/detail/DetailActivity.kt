@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.dhani.mvvm.R
 import com.dhani.mvvm.data.api.Routes
-import com.dhani.mvvm.data.api.DbClientInterface
+import com.dhani.mvvm.data.api.ClientInterface
 import com.dhani.mvvm.data.api.POSTER_BASE_URL
 import com.dhani.mvvm.data.repository.NetworkState
 import com.dhani.mvvm.data.vo.MovieDetails
@@ -29,7 +29,7 @@ class DetailActivity : AppCompatActivity() {
 
         val movie: Int = intent.getIntExtra("movie",0)
 
-        val apiService : Routes = DbClientInterface.getClient()
+        val apiService : Routes = ClientInterface.getClient()
         marketplaceRepository = MarketplaceDetailRepository(apiService)
 
         viewModel = getViewModel(movie)
